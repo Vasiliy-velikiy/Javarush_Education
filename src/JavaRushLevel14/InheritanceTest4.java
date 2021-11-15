@@ -1,0 +1,54 @@
+package JavaRushLevel14;
+/*Давай напишем программу, которая поможет нам определить, какое вино пить по какому случаю.
+Для этого нужно:
+Создать абстрактный класс Drink с реализованным методом public void taste(),
+который выводит в консоль "Вкусно".
+Создать класс Wine, наследуемый от Drink, с реализованным методом public String getHolidayName(),
+ который возвращает строку "День Рождения".
+Создать класс SparklingWine, наследуемый от Wine, с реализованным методом public String getHolidayName(),
+который возвращает строку "Новый Год".
+Написать реализацию методов getDeliciousDrink, getWine, getSparklingWine.
+Все классы должны находиться в отдельных файлах.*/
+public class InheritanceTest4 {
+    public static void main(String[] args) {
+        getDeliciousDrink().taste();
+        System.out.println(getWine().getHolidayName());
+        System.out.println(getSparklingWine().getHolidayName());
+        System.out.println(getWine().getHolidayName());
+    }
+
+    public static Drink getDeliciousDrink() {
+        Drink drink=new Wine();
+        return drink;
+
+    }
+
+    public static Wine getWine() {
+        Wine wine=new Wine();
+        return wine;
+
+    }
+
+    public static Wine getSparklingWine() {
+        Wine wine=new SparklingWine();
+        return wine;
+
+    }
+}
+
+class SparklingWine extends  Wine{
+    @Override
+    public String getHolidayName() {
+        return "Новый Год";
+    }
+}
+class Wine extends Drink  {
+    public String getHolidayName(){
+        return "День Рождения";
+    }
+}
+abstract class Drink {
+    public void taste(){
+        System.out.println("Вкусно");
+    }
+}
